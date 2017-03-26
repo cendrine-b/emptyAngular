@@ -1,13 +1,56 @@
 <!DOCTYPE html>
 <html ng-app="app">
-    <head>
-        <meta charset="utf-8">
-        <title>Angular Project</title>
-    </head>
-    <body ng-controller='mainController as vm'>
 
-        <script src="js/libs/angular.min.js"></script>
-        <script src="js/controllers/mainController.js"></script>
-        <script src="js/app.js"></script>
-    </body>
+<head>
+    <meta charset="utf-8">
+    <title>Angular Project</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body ng-controller='mainController as vm'>
+
+    <div class="container">
+        <div id="form" class="col-lg-5 col-xs-12">
+            <div class="form-group">
+                <label>Nom</label>
+                <input class="form-control" placeholder="Votre Nom" ng-model="name">
+            </div>
+            <div class="form-group">
+                <label>Prénom</label>
+                <input class="form-control" placeholder="Votre Prénom" ng-model="firstname">
+            </div>
+            <div class="form-group">
+                <label>E-mail</label>
+                <input class="form-control" placeholder="Votre adresse e-mail" ng-model="email">
+            </div>
+            <button type="submit" class="btn btn-primary" ng-click="addRow()">Valider</button>
+        </div>
+
+        <table id="identity" class="table">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>E-mail</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="line in table">
+                    <td>{{ line.name }}</td>
+                    <td>{{ line.firstname }}</td>
+                    <td>{{ line.email }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="js/libs/angular.min.js"></script>
+    <script src="js/controllers/mainController.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
 </html>
